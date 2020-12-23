@@ -44,8 +44,10 @@ app.use((req, res, next) => {
 });
 
 const indexRouter = require("./routes/index")
+const todoRouter = require("./routes/todo")
 
 app.use("/", indexRouter)
+app.use("/todo", todoRouter)
 
 app.listen(PORT, () => {
     console.log(`server running on PORT ${PORT} http://localhost:${PORT}`)

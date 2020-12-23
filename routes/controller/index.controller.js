@@ -3,7 +3,7 @@ const auth = require("../middleware/auth.middleware")
 const passAuth = require("../middleware/password.middleware")
 
 class controller {
-    static newUser(req, res, next) {
+    static async newUser(req, res, next) {
         let { firstName, lastName, password, email } = req.body
 
         try {
@@ -15,7 +15,7 @@ class controller {
               throw err
             }
     
-            const foundUser = User.findOne({"email": email})
+            const foundUser = await User.findOne({"email": email})
     
             if (foundUser) {
                 const err = new Error()
@@ -26,18 +26,17 @@ class controller {
             }
             
             password = passAuth.hashPassword( password )
-            const createUser = 
-                ({
-                    firstName,
-                    lastName,
-                    password,
-                    email
-                })
-            const user = new User(createUser)
-            user.save()
+
+            const user = new User({
+                firstName,
+                lastName,
+                password,
+                email
+            })
+            await user.save()
     
             const userJson = auth.authJSON(user)
-            res.status(201).json({
+            return await res.status(201).json({
                 success: true,
                 status: 201,
                 message: "User created successfully",
@@ -49,7 +48,7 @@ class controller {
         }
     }
 
-    static login(req, res, next) {
+    static async login(req, res, next) {
         const { email, password } = req.body
   
         try {
@@ -61,7 +60,7 @@ class controller {
             throw err
           }
     
-          const user = User.findOne({"email": email})
+          const user = await User.findOne({"email": email})
           
           if (!user) {
             const err = new Error()
@@ -83,20 +82,19 @@ class controller {
           }
           
           const userJson = auth.authJSON(user)
-          res.json({
+          return await res.json({
             success: true,
             user: userJson
           })
-    
         } catch (error) {
           next(error);
         }
     }
 
-    static userUpdate(req, res, next) {
+    static async userUpdate(req, res, next) {
         try {
             let { firstName, lastName} = req.body
-            const update =  User.findByIdAndUpdate(
+            const update = await User.findByIdAndUpdate(
                 user._id,
                 {
                     firstName, lastName
@@ -106,13 +104,13 @@ class controller {
                     new: true
                 }
             )
-            res.json(update)
+            return await res.json(update)
         } catch (error) {
             next(error)
         }
     }
 
-    static delUser(req, res, next) {
+    static async delUser(req, res, next) {
         const user = req.user
         try {
             if (!user) {
@@ -123,8 +121,8 @@ class controller {
                 throw err
             }
     
-            const del =  User.findByIdAndDelete(user._id)
-            res.json(del)
+            const del = await User.findByIdAndDelete(user._id)
+            return await res.json(del)
         } catch (error) {
             next(error)
         }
