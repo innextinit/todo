@@ -3,12 +3,16 @@ const Schema = mongoose.Schema
 
 // this is so a task can have its ID
 const task = new Schema({
-    taskName: String,
-    isCompleted: {
-      type: Boolean,
-      default: false
+    taskName: {
+        type: String,
+        validate: {
+            validator: (value) => {
+                return /^[a-zA-Z0-9 '".,!]{3,40}$/i.test(value)
+            },
+            message: problem => `${problem.value} is not valid`
+        }
     }
-  })
+})
 
 const TodoSchema = new Schema({
     todoName: {
@@ -17,7 +21,7 @@ const TodoSchema = new Schema({
         unique: true,
         validate: {
             validator: (value) => {
-                return /^[a-zA-Z '".,!]{3,40}$/i.test(value)
+                return /^[a-zA-Z0-9 '".,!]{3,40}$/i.test(value)
             },
             message: problem => `${problem.value} is not valid`
         }

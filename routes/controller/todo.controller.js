@@ -1,11 +1,9 @@
-const { findById } = require("../../database/models/todo.model")
 const Todo = require("../../database/models/todo.model")
 
 class todo {
     static async getUserTodos(req, res, next) {
         const user = req.user
         try {
-            console.log(user)
             const data = await Todo.find({"user": user._id})
             if (!data) throw Error("You do not have any todo list")
             return await res.json( data )
@@ -49,11 +47,9 @@ class todo {
             const { taskName } = req.body;
             if (!taskName) throw Error("Task name can't be empty");
             const foundTodo = req.todo
-            const newTask = await foundTodo.tasks.push( taskName )
-            // await newTask.save()
-            return await res.status(201).json({
-              newTask
-            })
+            await foundTodo.tasks.push({taskName})
+            await foundTodo.save()
+            return await res.status(201).json(foundTodo.tasks)
         } catch (error) {
             next(error)
         }
@@ -76,31 +72,11 @@ class todo {
         try {
             const { taskID } = req.params
             const foundTodo = req.todo
-            const filteredTasks = await foundTodo.tasks.filter((allTaskInTasks) => {
-                allTaskInTasks != taskID
-            })
-            await filteredTasks.save()
-            return await res.json(filteredTasks)
-        } catch (error) {
-            next(error)
-        }
-    }
-
-    static async markTaskAsCompleted(req, res, next) {
-        try {
-            const { taskID } = req.params
-            const foundTodoTask = await Todo.findByIdAndUpdate(taskID, { "isCompleted": true }, { upsert: true })
-            return  await res.json(foundTodoTask)
-        } catch (error) {
-            next(error)
-        }
-    }
-
-    static async markTaskAsUnCompleted(req, res, next) {
-        try {
-            const { taskID } = req.params
-            const foundTodoTask = await Todo.findByIdAndUpdate(taskID, { "isCompleted": false }, { upsert: true })
-            return  await res.json(foundTodoTask)
+            await foundTodo.updateOne({ "tasks": foundTodo.tasks.filter((allTaskInTasks) => {
+                return allTaskInTasks != taskID
+            }) })            
+            await foundTodo.save()
+            return await res.json(foundTodo)
         } catch (error) {
             next(error)
         }

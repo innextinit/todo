@@ -3,6 +3,14 @@ const auth = require("../middleware/auth.middleware")
 const passAuth = require("../middleware/password.middleware")
 
 class controller {
+    static async home(req, res, next) {
+        try {
+            res.send("Welcome, please do well to read the readme.md to know the routes present and how to use this app.")
+        } catch (error) {
+            next(error)
+        }
+    }
+
     static async newUser(req, res, next) {
         let { firstName, lastName, password, email } = req.body
 
