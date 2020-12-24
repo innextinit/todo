@@ -1,0 +1,525 @@
+{
+	"info": {
+		"_postman_id": "021fe0dc-18d9-4d69-80ec-d0d313d79006",
+		"name": "todo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "kola",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Kola",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user@user.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Pa$$W0Rd4Us3r",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{userURL}}/register",
+							"host": [
+								"{{userURL}}"
+							],
+							"path": [
+								"register"
+							]
+						},
+						"description": "sign up as a user"
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "user@user3.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Pa$$W0Rd4Us3r",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{userURL}}/login",
+							"host": [
+								"{{userURL}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "Login form. This takes email and password"
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoia29sYSIsIl9pZCI6IjVmZTQyZmRkMDViMmNkMTFkMDJiNzc4MyIsImlhdCI6MTYwODc4OTk4MSwiZXhwIjoxNjA4NzkzNTgxfQ.T-KbslBGpIieXPes92GtN5u26jv8qSvnEsmlF-F2Nw4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Inioluwa",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Kola-Adelakin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{userURL}}/",
+							"host": [
+								"{{userURL}}"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "update users details"
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwicm9sZSI6InVzZXIiLCJmaXJzdE5hbWUiOiJrb2xhIiwiX2lkIjoiNWZkYTk4ZGJjODRkN2QyOWNjMDg5YjUwIiwiaWF0IjoxNjA4MTYxNDk5LCJleHAiOjE2MDgxNjUwOTl9.XyKlWYUOZaPYmfjVCIf-8n_VAPUdVdvj0WfWp3dydPw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{userURL}}/:id",
+							"host": [
+								"{{userURL}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5fca30577f971220aab8b127",
+									"type": "string",
+									"description": "userID"
+								}
+							]
+						},
+						"description": "delete user"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDQwNzg3NzV9.gyr_Cb8TAvBF-KQh9KV9a-yuEwU1b5474R0my9G6iag",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "todo",
+			"item": [
+				{
+					"name": "get todos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{todoURL}}/",
+							"host": [
+								"{{todoURL}}"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "get all users todos, if none send message isnt having one"
+					},
+					"response": []
+				},
+				{
+					"name": "create todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "todoName",
+									"value": "third todo name",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{todoURL}}",
+							"host": [
+								"{{todoURL}}"
+							]
+						},
+						"description": "to create new todo"
+					},
+					"response": []
+				},
+				{
+					"name": "get a todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{todoURL}}/:todoID",
+							"host": [
+								"{{todoURL}}"
+							],
+							"path": [
+								":todoID"
+							],
+							"variable": [
+								{
+									"key": "todoID",
+									"value": "5fe4327f2df9cf13be065fa7"
+								}
+							]
+						},
+						"description": "this returns just a todo with its details"
+					},
+					"response": []
+				},
+				{
+					"name": "add task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{todoURL}}/:todoID",
+							"host": [
+								"{{todoURL}}"
+							],
+							"path": [
+								":todoID"
+							],
+							"variable": [
+								{
+									"key": "todoID",
+									"value": "5fe4327f2df9cf13be065fa7"
+								}
+							]
+						},
+						"description": "adds a task to a todo with the todoID in the params"
+					},
+					"response": []
+				},
+				{
+					"name": "remove todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{todoURL}}/:todoID",
+							"host": [
+								"{{todoURL}}"
+							],
+							"path": [
+								":todoID"
+							],
+							"variable": [
+								{
+									"key": "todoID",
+									"value": "5fe4327f2df9cf13be065fa7"
+								}
+							]
+						},
+						"description": "deletes a todo from list of todos"
+					},
+					"response": []
+				},
+				{
+					"name": "remove task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{todoURL}}/:todoID/:taskID",
+							"host": [
+								"{{todoURL}}"
+							],
+							"path": [
+								":todoID",
+								":taskID"
+							],
+							"variable": [
+								{
+									"key": "todoID",
+									"value": "5fe4327f2df9cf13be065fa7"
+								},
+								{
+									"key": "taskID",
+									"value": ""
+								}
+							]
+						},
+						"description": "deletes a task from a todo with the todosID and taskesID in params"
+					},
+					"response": []
+				},
+				{
+					"name": "mark completed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{todoURL}}/:todoID/:taskID/completed",
+							"host": [
+								"{{todoURL}}"
+							],
+							"path": [
+								":todoID",
+								":taskID",
+								"completed"
+							],
+							"variable": [
+								{
+									"key": "todoID",
+									"value": "5fe4327f2df9cf13be065fa7"
+								},
+								{
+									"key": "taskID",
+									"value": ""
+								}
+							]
+						},
+						"description": "to mark a task under a todo completed"
+					},
+					"response": []
+				},
+				{
+					"name": "mark uncompleted",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{todoURL}}/:todoID/:taskID/uncompleted",
+							"host": [
+								"{{todoURL}}"
+							],
+							"path": [
+								":todoID",
+								":taskID",
+								"uncompleted"
+							],
+							"variable": [
+								{
+									"key": "todoID",
+									"value": "5fe4327f2df9cf13be065fa7"
+								},
+								{
+									"key": "taskID",
+									"value": ""
+								}
+							]
+						},
+						"description": "to mark task as uncompleted"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjIuY29tIiwicm9sZSI6InVzZXIiLCJmaXJzdE5hbWUiOiJrb2xhIiwiX2lkIjoiNWZkYjVhOTUxMGE0NWQ0ZTljOTdiYThlIiwiaWF0IjoxNjA4MjE3MzIyLCJleHAiOjE2MDgyMjA5MjJ9._wTc_KkF2_5hhDLq4kjL6MkkgovhhGC2XjDIu4zwpsY",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

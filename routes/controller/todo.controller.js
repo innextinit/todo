@@ -5,13 +5,10 @@ class todo {
     static async getUserTodos(req, res, next) {
         const user = req.user
         try {
-            const data = await Todo.findById({user: user._id})
+            console.log(user)
+            const data = await Todo.find({"user": user._id})
             if (!data) throw Error("You do not have any todo list")
-            return await res.json({
-                "name": data.todoName,
-                "id": data._id,
-                data
-            })
+            return await res.json( data )
         } catch (error) {
             next(error)
         }
@@ -21,7 +18,7 @@ class todo {
         const user = req.user
         try {
             const { todoName } = req.body
-            if (!todoName) throw Error("please file the todo list name")
+            if (!todoName) throw Error("please fil the todo list name")
             const newTodo = new Todo({
                 todoName,
                 user: user._id
@@ -39,8 +36,7 @@ class todo {
 
     static async getTodo(req, res, next) {
         try {
-            const { todoID } = req.params
-            const foundTodo = Todo.findById(todoID)
+            const foundTodo = req.todo
             return await res.json(foundTodo)
             
         } catch (error) {
@@ -52,10 +48,9 @@ class todo {
         try {
             const { taskName } = req.body;
             if (!taskName) throw Error("Task name can't be empty");
-            const { todoID } = req.params;
-            const foundID = await findById(todoID)
-            const newTask = await foundID.tasks.push({ taskName })
-            await newTask.save()
+            const foundTodo = req.todo
+            const newTask = await foundTodo.tasks.push( taskName )
+            // await newTask.save()
             return await res.status(201).json({
               newTask
             })
@@ -66,7 +61,7 @@ class todo {
 
     static async removeTodo(req, res, next) {
         try {
-            const { todoID } = req.params
+            const todoID = req.todo._id
             const del = await Todo.findByIdAndDelete(todoID);
             return res.json({
               success: true,
@@ -79,10 +74,10 @@ class todo {
 
     static async removeTodoTask(req, res, next) {
         try {
-            const { todoID, taskID } = req.params
-            const foundTodo = await Todo.findById(todoID)
+            const { taskID } = req.params
+            const foundTodo = req.todo
             const filteredTasks = await foundTodo.tasks.filter((allTaskInTasks) => {
-                allTaskInTasks !== taskID
+                allTaskInTasks != taskID
             })
             await filteredTasks.save()
             return await res.json(filteredTasks)
@@ -94,16 +89,18 @@ class todo {
     static async markTaskAsCompleted(req, res, next) {
         try {
             const { taskID } = req.params
-            const foundTodo = await Todo.findByIdAndUpdate(taskID, { "isCompleted": true }, { upsert: true})
-            return await foundTodo
+            const foundTodoTask = await Todo.findByIdAndUpdate(taskID, { "isCompleted": true }, { upsert: true })
+            return  await res.json(foundTodoTask)
         } catch (error) {
             next(error)
         }
     }
 
-    static markTaskAsUnCompleted(req, res, next) {
+    static async markTaskAsUnCompleted(req, res, next) {
         try {
-            console.log("mark as uncompleted")
+            const { taskID } = req.params
+            const foundTodoTask = await Todo.findByIdAndUpdate(taskID, { "isCompleted": false }, { upsert: true })
+            return  await res.json(foundTodoTask)
         } catch (error) {
             next(error)
         }

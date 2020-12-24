@@ -92,6 +92,7 @@ class controller {
     }
 
     static async userUpdate(req, res, next) {
+        const user = req.user
         try {
             let { firstName, lastName} = req.body
             const update = await User.findByIdAndUpdate(

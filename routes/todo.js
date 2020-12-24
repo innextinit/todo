@@ -16,44 +16,44 @@ router.post(
 )
 
 router.get(
-    "/:todoId",
+    "/:todoID",
     auth.decodeToken,
-    isOwner,
+    isOwner.isOwner,
     controllers.getTodo
 )
 
 router.post(
-    "/:todoId",
+    "/:todoID",
     auth.decodeToken,
-    isOwner,
+    isOwner.isOwner,
     controllers.addTaskToTodo
 )
 
 router.delete(
-    "/:todoId",
+    "/:todoID",
     auth.decodeToken,
-    isOwner,
+    isOwner.isOwner,
     controllers.removeTodo
 )
 
 router.delete(
-    "/:todoId/:taskId",
+    "/:todoID/:taskID",
     auth.decodeToken,
-    isOwner,
+    isOwner.isOwner,
     controllers.removeTodoTask
 )
 
 router.patch(
   "/:todoId/:taskId/completed",
   auth.decodeToken,
-  isOwner,
+  isOwner.isOwner,
   controllers.markTaskAsCompleted
 )
 
 router.patch(
   "/:todoId/:taskId/uncompleted",
   auth.decodeToken,
-  isOwner,
+  isOwner.isOwner,
   controllers.markTaskAsUnCompleted
 )
 

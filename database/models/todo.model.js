@@ -14,6 +14,7 @@ const TodoSchema = new Schema({
     todoName: {
         type: String,
         required: true,
+        unique: true,
         validate: {
             validator: (value) => {
                 return /^[a-zA-Z '".,!]{3,40}$/i.test(value)
@@ -23,7 +24,7 @@ const TodoSchema = new Schema({
     },
     tasks: [task],
     user: {
-        type: [mongoose.Schema.Types.ObjectId],
+        type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         validate: {
             validator: (value) => {

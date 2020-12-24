@@ -8,8 +8,8 @@ router.post(
   controller.newUser
 )
 
-router.get(
-  "login",
+router.post(
+  "/login",
   controller.login
 )
 

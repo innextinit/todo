@@ -1,16 +1,19 @@
+const Todo = require("../../database/models/todo.model")
+
 class isOwner {
     static async isOwner(req, res, next) {
-        const todoId = req.params.todoId
-        const user = res.user
+        const { todoID } = req.params
+        const user = req.user._id.toString()
         try {
-            const todo = await Todo.findById(todoId);
-            if (!todo) throw Error("Todolist not found");
-            const todoCreator = todo.user;
+            const todo = await Todo.findById(todoID);
+            if (!todo) throw Error("Todolist not found")
+            const todoCreator = todo.user.toString()
             if (todoCreator === user) {
-              req.todo = todo;
-              return next();
+                req.todo = todo;
+                next();
+            } else {
+                throw Error("You do not own this todo list")
             }
-            throw Error("You do not own this todo list");
         } catch (error) {
             next(error)
         }
