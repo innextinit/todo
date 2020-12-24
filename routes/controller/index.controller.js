@@ -5,7 +5,7 @@ const passAuth = require("../middleware/password.middleware")
 class controller {
     static async home(req, res, next) {
         try {
-            res.send("Welcome, please do well to read the readme.md to know the routes present and how to use this app.")
+            res.send("Welcome, please do well to read the readme.md at https://github.com/innext/todo.git to know the routes present and how to use this app.")
         } catch (error) {
             next(error)
         }
