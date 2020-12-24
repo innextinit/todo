@@ -24,7 +24,6 @@ POST    | {{userURL}}/register              | firstName, lastName, email, passwo
 POST    | {{userURL}}/login                 | email, password -- body key
 PUT     | {{userURL}}                       | firstName, lastName -- body key
 DELETE  | {{userURL}}/:id                   | delete user
-
 GET     | {{todoURL}}                       | get all users todo
 POST    | {{todoURL}}                       | todoName -- body key
 GET     | {{todoURL}}/:todoID/              | get a todo
