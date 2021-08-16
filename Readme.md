@@ -1,6 +1,6 @@
 ## About this work
 
-This is a NodeJS based Todo API list. This please to keep trace of the things which needs to be done.
+This is a NodeJS based Todo API list. This is to keep trace of the things which needs to be done.
 
 I used [Express](https://expressjs.com) with [NodeJS]() and [MongoDB](https://mongodb.com) for database. Other dependencies used include [Mongoose](https://mongoosejs.com) to communicate with MongoDB driver, [Bcrypt]() to encode the password gotten from the user during registration and [JWT]() to sign a token that gets sent for authorization
 

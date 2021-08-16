@@ -73,7 +73,7 @@ class todo {
             const { taskID } = req.params
             const foundTodo = req.todo
             await foundTodo.updateOne({ "tasks": foundTodo.tasks.filter((allTaskInTasks) => {
-                return allTaskInTasks != taskID
+                return allTaskInTasks !== taskID
             }) })            
             await foundTodo.save()
             return await res.json(foundTodo)

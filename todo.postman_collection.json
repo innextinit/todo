@@ -21,7 +21,64 @@
 						},
 						"description": "just a welcome message to read the readme.md file"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "welcome",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{userURL}}",
+									"host": [
+										"{{userURL}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "130"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"82-WN+S6xO4L4TGrsw+Yirrf4GfkuI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Aug 2021 23:09:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Welcome, please do well to read the readme.md @ https://github.com/innext/todo to know the routes present and how to use this app."
+						}
+					]
 				},
 				{
 					"name": "register",
@@ -36,22 +93,22 @@
 							"urlencoded": [
 								{
 									"key": "firstName",
-									"value": "kolade",
+									"value": "kola",
 									"type": "text"
 								},
 								{
 									"key": "lastName",
-									"value": "pelumi",
+									"value": "inioluwa",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "user@user1.com",
+									"value": "admin@testmail.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "Pa$$W0Rd4Us3r",
+									"value": "Password&123",
 									"type": "text"
 								}
 							]
@@ -67,7 +124,92 @@
 						},
 						"description": "sign up as a user"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "firstName",
+											"value": "kola",
+											"type": "text"
+										},
+										{
+											"key": "lastName",
+											"value": "inioluwa",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "admin@testmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Password&123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{userURL}}/register",
+									"host": [
+										"{{userURL}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "371"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"173-OYsdhXuJM3rU7DWcNzEnk7M/iec\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Aug 2021 22:55:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"status\": 201,\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"email\": \"admin@testmail.com\",\n        \"firstName\": \"kola\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHRlc3RtYWlsLmNvbSIsImZpcnN0TmFtZSI6ImtvbGEiLCJfaWQiOiI2MTFhZWNmM2M5ZDM2NDZiNjY0MTBjNGEiLCJpYXQiOjE2MjkxNTQ1NDgsImV4cCI6MTYyOTE1ODE0OH0.hFbgMgjscSub02aafVhTVXEgrSaDYd9W-qOhkECBoT0\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "login",
@@ -100,21 +242,86 @@
 						},
 						"description": "Login form. This takes email and password"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "user@user1.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Pa$$W0Rd4Us3r",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{userURL}}/login",
+									"host": [
+										"{{userURL}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "315"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13b-AAYwKWJX59ehWmxSpPSEzorlqVY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Aug 2021 22:55:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"user\": {\n        \"email\": \"user@user1.com\",\n        \"firstName\": \"kolade\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjI5MTU0NTU4LCJleHAiOjE2MjkxNTgxNTh9.qwBR8FDFTMhPamx8k3bNfsEjgI8MmpJK2sUMGxk2Q0Y\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "update user",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNiZjk4OWM1ZDIwMDE3ZjM5M2U4IiwiaWF0IjoxNjA4ODI5OTY0LCJleHAiOjE2MDg4MzM1NjR9.gzOolVqUVXvVj5vr_IVbJQLhuVmCWdTSZ5UzMEm86Hs",
-									"type": "string"
-								}
-							]
-						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -143,21 +350,86 @@
 						},
 						"description": "update users details"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "update user",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "firstName",
+											"value": "Inioluwa",
+											"type": "text"
+										},
+										{
+											"key": "lastName",
+											"value": "Kola-Adelakin",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{userURL}}/",
+									"host": [
+										"{{userURL}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "269"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10d-gxfwmW1bBVb5qRxdFyuCtXijRi0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Aug 2021 22:56:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"5fe4cd3d3688870cc8e98b16\",\n    \"firstName\": \"Inioluwa\",\n    \"lastName\": \"Kola-Adelakin\",\n    \"password\": \"$2a$15$iR1DVVYyksMFcqDItqsbsuSc/YgTJYEZOEHGB10.fcfwYiD9eosGO\",\n    \"email\": \"user@user1.com\",\n    \"createdAt\": \"2020-12-24T17:17:49.235Z\",\n    \"updatedAt\": \"2021-08-16T22:56:45.309Z\",\n    \"__v\": 0\n}"
+						}
+					]
 				},
 				{
 					"name": "delete user",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlci5jb20iLCJmaXJzdE5hbWUiOiJrb2xhIiwiX2lkIjoiNWZlNDMwZmEyZGY5Y2YxM2JlMDY1ZmE2IiwiaWF0IjoxNjA4NzkwMjY2LCJleHAiOjE2MDg3OTM4NjZ9.ScYprNGd7wjLc9WxUO2Gpj_Hwve8XD4hqgWobLA2Q2A",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [],
 						"body": {
@@ -186,16 +458,6 @@
 					"response": []
 				}
 			],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDQwNzg3NzV9.gyr_Cb8TAvBF-KQh9KV9a-yuEwU1b5474R0my9G6iag",
-						"type": "string"
-					}
-				]
-			},
 			"event": [
 				{
 					"listen": "prerequest",
@@ -223,16 +485,6 @@
 				{
 					"name": "get todos",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjA4ODM0MTI2LCJleHAiOjE2MDg4Mzc3MjZ9.xO-NmeK4JxaLeJ7a1gu4muIMcW2uS81_TlIrVJ6LkeU",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -246,21 +498,71 @@
 						},
 						"description": "get all users todos, if none send message isnt having one"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "get todos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{todoURL}}/",
+									"host": [
+										"{{todoURL}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "468"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d4-baFJeRaML61q+nJj4CZKxei6bRs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Aug 2021 23:08:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"5fe4dc8c5c185826bf77bfdf\",\n        \"todoName\": \"2nd todo name\",\n        \"user\": \"5fe4cd3d3688870cc8e98b16\",\n        \"tasks\": [\n            {\n                \"isCompleted\": false,\n                \"_id\": \"5fe4dffe9782362ae68d6692\",\n                \"taskName\": \"check task for 1st  todo list\"\n            }\n        ],\n        \"__v\": 3\n    },\n    {\n        \"_id\": \"611aed64c9d3646b66410c4c\",\n        \"todoName\": \"hosting to swagger today\",\n        \"user\": \"5fe4cd3d3688870cc8e98b16\",\n        \"tasks\": [],\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"611aefd16d51936d7c92b740\",\n        \"todoName\": \"check web boss youtube page\",\n        \"user\": \"5fe4cd3d3688870cc8e98b16\",\n        \"tasks\": [],\n        \"__v\": 0\n    }\n]"
+						}
+					]
 				},
 				{
 					"name": "create todo",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjA4ODM0MTI2LCJleHAiOjE2MDg4Mzc3MjZ9.xO-NmeK4JxaLeJ7a1gu4muIMcW2uS81_TlIrVJ6LkeU",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -268,7 +570,7 @@
 							"urlencoded": [
 								{
 									"key": "todoName",
-									"value": "2nd todo name",
+									"value": "check web boss youtube page",
 									"type": "text"
 								}
 							]
@@ -281,21 +583,82 @@
 						},
 						"description": "to create new todo"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "create todo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "todoName",
+											"value": "check web boss youtube page",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{todoURL}}",
+									"host": [
+										"{{todoURL}}"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "178"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b2-CY2UvxAvy8qNQUeFU8bdJVuREl0\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3AkQ7r2-ZPjp6t6yLfbyWGT4fIUBuALqGd.Vq71AgXgv9S6Tmo95PC2KScHWSq3uRZWhLiEarawV%2Fw; Path=/; Expires=Mon, 16 Aug 2021 23:20:01 GMT; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Aug 2021 23:08:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Todo created successfully\",\n    \"newTodo\": {\n        \"_id\": \"611aefd16d51936d7c92b740\",\n        \"todoName\": \"check web boss youtube page\",\n        \"user\": \"5fe4cd3d3688870cc8e98b16\",\n        \"tasks\": [],\n        \"__v\": 0\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "get a todo",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNiZjk4OWM1ZDIwMDE3ZjM5M2U4IiwiaWF0IjoxNjA4ODI5OTY0LCJleHAiOjE2MDg4MzM1NjR9.gzOolVqUVXvVj5vr_IVbJQLhuVmCWdTSZ5UzMEm86Hs",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -309,27 +672,85 @@
 							"variable": [
 								{
 									"key": "todoID",
-									"value": "5fe4cc8e89c5d20017f393e9"
+									"value": "611aefd16d51936d7c92b740",
+									"type": "string"
 								}
 							]
 						},
 						"description": "this returns just a todo with its details"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "get a todo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{todoURL}}/:todoID",
+									"host": [
+										"{{todoURL}}"
+									],
+									"path": [
+										":todoID"
+									],
+									"variable": [
+										{
+											"key": "todoID",
+											"value": "611aefd16d51936d7c92b740",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "128"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"80-3BQdaKIxeJYfvFuxOUMHb+21VRw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Aug 2021 23:10:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"611aefd16d51936d7c92b740\",\n    \"todoName\": \"check web boss youtube page\",\n    \"user\": \"5fe4cd3d3688870cc8e98b16\",\n    \"tasks\": [],\n    \"__v\": 0\n}"
+						}
+					]
 				},
 				{
 					"name": "add task",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjA4ODM0MTI2LCJleHAiOjE2MDg4Mzc3MjZ9.xO-NmeK4JxaLeJ7a1gu4muIMcW2uS81_TlIrVJ6LkeU",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -337,7 +758,7 @@
 							"urlencoded": [
 								{
 									"key": "taskName",
-									"value": "check task for 1st  todo list",
+									"value": "check task for 3rd  todo list",
 									"type": "text"
 								}
 							]
@@ -353,27 +774,97 @@
 							"variable": [
 								{
 									"key": "todoID",
-									"value": "5fe4dc8c5c185826bf77bfdf"
+									"value": "611aefd16d51936d7c92b740",
+									"type": "string",
+									"description": "the todo i want to add task to"
 								}
 							]
 						},
 						"description": "adds a task to a todo with the todoID in the params"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "add task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "taskName",
+											"value": "check task for 3rd  todo list",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{todoURL}}/:todoID",
+									"host": [
+										"{{todoURL}}"
+									],
+									"path": [
+										":todoID"
+									],
+									"variable": [
+										{
+											"key": "todoID",
+											"value": "611aefd16d51936d7c92b740",
+											"type": "string",
+											"description": "the todo i want to add task to"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "235"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"eb-NIhAadIx7X1nP71dHWG7jBGXftI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Aug 2021 23:11:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"611af08b6d51936d7c92b741\",\n        \"taskName\": \"check task for 1st  todo list\"\n    },\n    {\n        \"_id\": \"611af09e6d51936d7c92b742\",\n        \"taskName\": \"check task for 2nd  todo list\"\n    },\n    {\n        \"_id\": \"611af0a66d51936d7c92b743\",\n        \"taskName\": \"check task for 3rd  todo list\"\n    }\n]"
+						}
+					]
 				},
 				{
 					"name": "remove todo",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjA4ODMwMjc2LCJleHAiOjE2MDg4MzM4NzZ9.uw4WQL_SefTtJmzLyW9oJXL1hUFULZrDsyFEzExgZT0",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -387,27 +878,85 @@
 							"variable": [
 								{
 									"key": "todoID",
-									"value": "5fe4d6176e32c91c4c1d67c6"
+									"value": "611aed64c9d3646b66410c4c",
+									"type": "string"
 								}
 							]
 						},
 						"description": "deletes a todo from list of todos"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "remove todo",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{todoURL}}/:todoID",
+									"host": [
+										"{{todoURL}}"
+									],
+									"path": [
+										":todoID"
+									],
+									"variable": [
+										{
+											"key": "todoID",
+											"value": "611aed64c9d3646b66410c4c",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a-6mM+7LcId3XT/wEMuvGnyCESMJA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Aug 2021 23:12:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"hosting to swagger today deleted successfully\"\n}"
+						}
+					]
 				},
 				{
 					"name": "remove task",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjA4ODM0MTI2LCJleHAiOjE2MDg4Mzc3MjZ9.xO-NmeK4JxaLeJ7a1gu4muIMcW2uS81_TlIrVJ6LkeU",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -422,11 +971,13 @@
 							"variable": [
 								{
 									"key": "todoID",
-									"value": "5fe4dc8c5c185826bf77bfdf"
+									"value": "611aefd16d51936d7c92b740",
+									"type": "string"
 								},
 								{
 									"key": "taskID",
-									"value": "5fe4dcbd5c185826bf77bfe1"
+									"value": "611af09e6d51936d7c92b742",
+									"type": "string"
 								}
 							]
 						},
@@ -435,16 +986,6 @@
 					"response": []
 				}
 			],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjIuY29tIiwicm9sZSI6InVzZXIiLCJmaXJzdE5hbWUiOiJrb2xhIiwiX2lkIjoiNWZkYjVhOTUxMGE0NWQ0ZTljOTdiYThlIiwiaWF0IjoxNjA4MjE3MzIyLCJleHAiOjE2MDgyMjA5MjJ9._wTc_KkF2_5hhDLq4kjL6MkkgovhhGC2XjDIu4zwpsY",
-						"type": "string"
-					}
-				]
-			},
 			"event": [
 				{
 					"listen": "prerequest",
@@ -465,6 +1006,36 @@
 					}
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjI5MTU0NTU4LCJleHAiOjE2MjkxNTgxNTh9.qwBR8FDFTMhPamx8k3bNfsEjgI8MmpJK2sUMGxk2Q0Y",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

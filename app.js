@@ -3,29 +3,13 @@ const app = express()
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
 const expressSession = require("express-session")
-const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 dotenv.config()
 const {PORT} = process.env
-const {DATABASE_URL} = process.env
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
-// database connection
-try {
-  const options = {
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false
-  }
-  
-  mongoose.connect(DATABASE_URL, options)
-  console.log(`>>> Conneced to MongoDB database ${DATABASE_URL}`)
-} catch (error) {
-  console.log("<<< Could not connect to a database", error)
-}
 
 // session
 app.use(cookieParser())
@@ -49,8 +33,9 @@ const todoRouter = require("./routes/todo")
 app.use("/", indexRouter)
 app.use("/todo", todoRouter)
 
-app.listen(PORT, () => {
-    console.log(`server running on PORT ${PORT} http://localhost:${PORT}`)
+app.listen(PORT, async () => {
+    await require("./database/mongodb-config")()
+    console.log(`server listening on PORT ${PORT} http://localhost:${PORT}`)
 })
 
 module.exports = app
