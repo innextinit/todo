@@ -43,18 +43,4 @@ router.delete(
     controllers.removeTodoTask
 )
 
-router.patch(
-  "/:todoId/:taskId/completed",
-  auth.decodeToken,
-  isOwner.isOwner,
-  controllers.markTaskAsCompleted
-)
-
-router.patch(
-  "/:todoId/:taskId/uncompleted",
-  auth.decodeToken,
-  isOwner.isOwner,
-  controllers.markTaskAsUnCompleted
-)
-
 module.exports = router

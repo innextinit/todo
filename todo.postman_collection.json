@@ -9,7 +9,22 @@
 			"name": "user",
 			"item": [
 				{
-					"name": "user",
+					"name": "welcome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{userURL}}",
+							"host": [
+								"{{userURL}}"
+							]
+						},
+						"description": "just a welcome message to read the readme.md file"
+					},
+					"response": []
+				},
+				{
+					"name": "register",
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -21,17 +36,17 @@
 							"urlencoded": [
 								{
 									"key": "firstName",
-									"value": "kola",
+									"value": "kolade",
 									"type": "text"
 								},
 								{
 									"key": "lastName",
-									"value": "Kola",
+									"value": "pelumi",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "user@user.com",
+									"value": "user@user1.com",
 									"type": "text"
 								},
 								{
@@ -55,7 +70,7 @@
 					"response": []
 				},
 				{
-					"name": "user",
+					"name": "login",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -64,7 +79,7 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "user@user3.com",
+									"value": "user@user1.com",
 									"type": "text"
 								},
 								{
@@ -88,14 +103,14 @@
 					"response": []
 				},
 				{
-					"name": "user",
+					"name": "update user",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoia29sYSIsIl9pZCI6IjVmZTQyZmRkMDViMmNkMTFkMDJiNzc4MyIsImlhdCI6MTYwODc4OTk4MSwiZXhwIjoxNjA4NzkzNTgxfQ.T-KbslBGpIieXPes92GtN5u26jv8qSvnEsmlF-F2Nw4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNiZjk4OWM1ZDIwMDE3ZjM5M2U4IiwiaWF0IjoxNjA4ODI5OTY0LCJleHAiOjE2MDg4MzM1NjR9.gzOolVqUVXvVj5vr_IVbJQLhuVmCWdTSZ5UzMEm86Hs",
 									"type": "string"
 								}
 							]
@@ -131,14 +146,14 @@
 					"response": []
 				},
 				{
-					"name": "user",
+					"name": "delete user",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwicm9sZSI6InVzZXIiLCJmaXJzdE5hbWUiOiJrb2xhIiwiX2lkIjoiNWZkYTk4ZGJjODRkN2QyOWNjMDg5YjUwIiwiaWF0IjoxNjA4MTYxNDk5LCJleHAiOjE2MDgxNjUwOTl9.XyKlWYUOZaPYmfjVCIf-8n_VAPUdVdvj0WfWp3dydPw",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlci5jb20iLCJmaXJzdE5hbWUiOiJrb2xhIiwiX2lkIjoiNWZlNDMwZmEyZGY5Y2YxM2JlMDY1ZmE2IiwiaWF0IjoxNjA4NzkwMjY2LCJleHAiOjE2MDg3OTM4NjZ9.ScYprNGd7wjLc9WxUO2Gpj_Hwve8XD4hqgWobLA2Q2A",
 									"type": "string"
 								}
 							]
@@ -213,7 +228,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjA4ODM0MTI2LCJleHAiOjE2MDg4Mzc3MjZ9.xO-NmeK4JxaLeJ7a1gu4muIMcW2uS81_TlIrVJ6LkeU",
 									"type": "string"
 								}
 							]
@@ -241,7 +256,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjA4ODM0MTI2LCJleHAiOjE2MDg4Mzc3MjZ9.xO-NmeK4JxaLeJ7a1gu4muIMcW2uS81_TlIrVJ6LkeU",
 									"type": "string"
 								}
 							]
@@ -253,7 +268,7 @@
 							"urlencoded": [
 								{
 									"key": "todoName",
-									"value": "third todo name",
+									"value": "2nd todo name",
 									"type": "text"
 								}
 							]
@@ -276,7 +291,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNiZjk4OWM1ZDIwMDE3ZjM5M2U4IiwiaWF0IjoxNjA4ODI5OTY0LCJleHAiOjE2MDg4MzM1NjR9.gzOolVqUVXvVj5vr_IVbJQLhuVmCWdTSZ5UzMEm86Hs",
 									"type": "string"
 								}
 							]
@@ -294,7 +309,7 @@
 							"variable": [
 								{
 									"key": "todoID",
-									"value": "5fe4327f2df9cf13be065fa7"
+									"value": "5fe4cc8e89c5d20017f393e9"
 								}
 							]
 						},
@@ -310,13 +325,23 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjA4ODM0MTI2LCJleHAiOjE2MDg4Mzc3MjZ9.xO-NmeK4JxaLeJ7a1gu4muIMcW2uS81_TlIrVJ6LkeU",
 									"type": "string"
 								}
 							]
 						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "taskName",
+									"value": "check task for 1st  todo list",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
 							"raw": "{{todoURL}}/:todoID",
 							"host": [
@@ -328,7 +353,7 @@
 							"variable": [
 								{
 									"key": "todoID",
-									"value": "5fe4327f2df9cf13be065fa7"
+									"value": "5fe4dc8c5c185826bf77bfdf"
 								}
 							]
 						},
@@ -344,7 +369,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjA4ODMwMjc2LCJleHAiOjE2MDg4MzM4NzZ9.uw4WQL_SefTtJmzLyW9oJXL1hUFULZrDsyFEzExgZT0",
 									"type": "string"
 								}
 							]
@@ -362,7 +387,7 @@
 							"variable": [
 								{
 									"key": "todoID",
-									"value": "5fe4327f2df9cf13be065fa7"
+									"value": "5fe4d6176e32c91c4c1d67c6"
 								}
 							]
 						},
@@ -378,7 +403,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjEuY29tIiwiZmlyc3ROYW1lIjoia29sYWRlIiwiX2lkIjoiNWZlNGNkM2QzNjg4ODcwY2M4ZTk4YjE2IiwiaWF0IjoxNjA4ODM0MTI2LCJleHAiOjE2MDg4Mzc3MjZ9.xO-NmeK4JxaLeJ7a1gu4muIMcW2uS81_TlIrVJ6LkeU",
 									"type": "string"
 								}
 							]
@@ -397,95 +422,15 @@
 							"variable": [
 								{
 									"key": "todoID",
-									"value": "5fe4327f2df9cf13be065fa7"
+									"value": "5fe4dc8c5c185826bf77bfdf"
 								},
 								{
 									"key": "taskID",
-									"value": ""
+									"value": "5fe4dcbd5c185826bf77bfe1"
 								}
 							]
 						},
 						"description": "deletes a task from a todo with the todosID and taskesID in params"
-					},
-					"response": []
-				},
-				{
-					"name": "mark completed",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": "{{todoURL}}/:todoID/:taskID/completed",
-							"host": [
-								"{{todoURL}}"
-							],
-							"path": [
-								":todoID",
-								":taskID",
-								"completed"
-							],
-							"variable": [
-								{
-									"key": "todoID",
-									"value": "5fe4327f2df9cf13be065fa7"
-								},
-								{
-									"key": "taskID",
-									"value": ""
-								}
-							]
-						},
-						"description": "to mark a task under a todo completed"
-					},
-					"response": []
-				},
-				{
-					"name": "mark uncompleted",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlcjMuY29tIiwiZmlyc3ROYW1lIjoiSW5pb2x1d2EiLCJfaWQiOiI1ZmU0MmZkZDA1YjJjZDExZDAyYjc3ODMiLCJpYXQiOjE2MDg4MDM3MTQsImV4cCI6MTYwODgwNzMxNH0.ndKFGfMUaR8m9UANu_trdDsvNCGfkPD0rdm0NjWuAq0",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": "{{todoURL}}/:todoID/:taskID/uncompleted",
-							"host": [
-								"{{todoURL}}"
-							],
-							"path": [
-								":todoID",
-								":taskID",
-								"uncompleted"
-							],
-							"variable": [
-								{
-									"key": "todoID",
-									"value": "5fe4327f2df9cf13be065fa7"
-								},
-								{
-									"key": "taskID",
-									"value": ""
-								}
-							]
-						},
-						"description": "to mark task as uncompleted"
 					},
 					"response": []
 				}

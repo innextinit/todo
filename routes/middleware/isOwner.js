@@ -1,4 +1,4 @@
-const Todo = require("../../database/models/todo.model")
+const Todo = require("../../database/models/todo.model");
 
 class isOwner {
     static async isOwner(req, res, next) {
